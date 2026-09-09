@@ -1,0 +1,295 @@
+{
+ "GlobalSequence": {
+  "type": "Common.WorkflowDesigner.Spx.Core.GlobalSequence, Common.WorkflowDesigner.Spx, Version=1.9.0.398, Culture=neutral, PublicKeyToken=null",
+  "fields": [
+   "ActivityType",
+   "ActivityName",
+   "Activities",
+   "GlobalVariables",
+   "DisplayName"
+  ]
+ },
+ "Block": {
+  "type": "Common.WorkflowDesigner.Spx.Core.Block, Common.WorkflowDesigner.Spx, Version=1.9.0.398, Culture=neutral, PublicKeyToken=null",
+  "fields": [
+   "ActivityType",
+   "ActivityName",
+   "Activities",
+   "DisplayName",
+   "IsEnabled",
+   "Comment"
+  ]
+ },
+ "Initialize": {
+  "type": "Lib.MGISP_960.VisualDesigner.Spx.Workflow.Commands.Initialize, Lib.MGISP_960.VisualDesigner.Spx, Version=1.9.0.398, Culture=neutral, PublicKeyToken=null",
+  "fields": [
+   "ActivityType",
+   "ActivityName",
+   "Comment",
+   "DisplayName",
+   "IsEnabled"
+  ]
+ },
+ "PcrOpenDoor": {
+  "type": "Lib.MGISP_960.VisualDesigner.Spx.Workflow.Commands.PcrOpenDoor, Lib.MGISP_960.VisualDesigner.Spx, Version=1.9.0.398, Culture=neutral, PublicKeyToken=null",
+  "fields": [
+   "ActivityType",
+   "ActivityName",
+   "PCRType",
+   "DisplayName",
+   "IsEnabled"
+  ]
+ },
+ "Parallel": {
+  "type": "Common.WorkflowDesigner.Spx.Core.Parallel, Common.WorkflowDesigner.Spx, Version=1.9.0.398, Culture=neutral, PublicKeyToken=null",
+  "fields": [
+   "ActivityType",
+   "ActivityName",
+   "Branches",
+   "DisplayName",
+   "IsEnabled"
+  ]
+ },
+ "TempSet": {
+  "type": "Lib.MGISP_960.VisualDesigner.Spx.Workflow.Commands.TempSet, Lib.MGISP_960.VisualDesigner.Spx, Version=1.9.0.398, Culture=neutral, PublicKeyToken=null",
+  "fields": [
+   "ActivityType",
+   "ActivityName",
+   "TempType",
+   "Target",
+   "DisplayName",
+   "IsEnabled"
+  ]
+ },
+ "PcrRun": {
+  "type": "Lib.MGISP_960.VisualDesigner.Spx.Workflow.Commands.PcrRun, Lib.MGISP_960.VisualDesigner.Spx, Version=1.9.0.398, Culture=neutral, PublicKeyToken=null",
+  "fields": [
+   "ActivityType",
+   "ActivityName",
+   "Method",
+   "PCRType",
+   "DisplayName",
+   "IsEnabled"
+  ]
+ },
+ "Report": {
+  "type": "Lib.MGISP_960.VisualDesigner.Spx.Workflow.Commands.Report, Lib.MGISP_960.VisualDesigner.Spx, Version=1.9.0.398, Culture=neutral, PublicKeyToken=null",
+  "fields": [
+   "ActivityType",
+   "ActivityName",
+   "Phase",
+   "Step",
+   "DisplayName",
+   "IsEnabled"
+  ]
+ },
+ "LoadTips": {
+  "type": "Lib.MGISP_960.VisualDesigner.Spx.Workflow.Commands.LoadTips, Lib.MGISP_960.VisualDesigner.Spx, Version=1.9.0.398, Culture=neutral, PublicKeyToken=null",
+  "fields": [
+   "ActivityType",
+   "ActivityName",
+   "Row",
+   "Position",
+   "WellType",
+   "Tips",
+   "Col",
+   "DisplayName",
+   "IsEnabled"
+  ]
+ },
+ "Aspirate": {
+  "type": "Lib.MGISP_960.VisualDesigner.Spx.Workflow.Commands.Aspirate, Lib.MGISP_960.VisualDesigner.Spx, Version=1.9.0.398, Culture=neutral, PublicKeyToken=null",
+  "fields": [
+   "ActivityType",
+   "ActivityName",
+   "AspirateVolume",
+   "Position",
+   "BottomOffsetOfZ",
+   "AspirateRateOfP",
+   "DelySeconds",
+   "IfTipTouch",
+   "WellType",
+   "Tips",
+   "Col",
+   "Row",
+   "DisplayName",
+   "IsEnabled",
+   "PreAirVolume",
+   "PostAirVolume"
+  ]
+ },
+ "Dispense": {
+  "type": "Lib.MGISP_960.VisualDesigner.Spx.Workflow.Commands.Dispense, Lib.MGISP_960.VisualDesigner.Spx, Version=1.9.0.398, Culture=neutral, PublicKeyToken=null",
+  "fields": [
+   "ActivityType",
+   "ActivityName",
+   "Position",
+   "BottomOffsetOfZ",
+   "IsEmpty",
+   "DispenseRateOfP",
+   "IfTipTouch",
+   "EmptyForDispense",
+   "WellType",
+   "Tips",
+   "Col",
+   "Row",
+   "DisplayName",
+   "IsEnabled",
+   "DispenseVolume",
+   "DelySeconds",
+   "TipTouchHeight",
+   "TipTouchOffsetOfX"
+  ]
+ },
+ "Loop": {
+  "type": "Common.WorkflowDesigner.Spx.Core.Loop, Common.WorkflowDesigner.Spx, Version=1.9.0.398, Culture=neutral, PublicKeyToken=null",
+  "fields": [
+   "ActivityType",
+   "ActivityName",
+   "VariableName",
+   "LoopCount",
+   "Body",
+   "LoopType",
+   "DisplayName",
+   "IsEnabled"
+  ]
+ },
+ "UnloadTips": {
+  "type": "Lib.MGISP_960.VisualDesigner.Spx.Workflow.Commands.UnloadTips, Lib.MGISP_960.VisualDesigner.Spx, Version=1.9.0.398, Culture=neutral, PublicKeyToken=null",
+  "fields": [
+   "ActivityType",
+   "ActivityName",
+   "Position",
+   "WellType",
+   "Tips",
+   "Col",
+   "Row",
+   "DisplayName",
+   "IsEnabled"
+  ]
+ },
+ "Mix": {
+  "type": "Lib.MGISP_960.VisualDesigner.Spx.Workflow.Commands.Mix, Lib.MGISP_960.VisualDesigner.Spx, Version=1.9.0.398, Culture=neutral, PublicKeyToken=null",
+  "fields": [
+   "ActivityType",
+   "ActivityName",
+   "MixLoopVolume",
+   "PreAirVolume",
+   "Position",
+   "SubMixLoopCounts",
+   "BottomOffsetOfZ",
+   "MixLoopAspirateRate",
+   "MixOffsetOfZInLoop",
+   "MixLoopDispenseRate",
+   "MixOffsetOfZAfterLoop",
+   "DispenseRateAfterSubmixLoop",
+   "SubMixLoopCompletedDely",
+   "IfTipTouch",
+   "TipTouchHeight",
+   "WellType",
+   "Tips",
+   "Col",
+   "Row",
+   "DisplayName",
+   "IsEnabled",
+   "SecondRouteRate"
+  ]
+ },
+ "Delay": {
+  "type": "Lib.MGISP_960.VisualDesigner.Spx.Workflow.Commands.Delay, Lib.MGISP_960.VisualDesigner.Spx, Version=1.9.0.398, Culture=neutral, PublicKeyToken=null",
+  "fields": [
+   "ActivityType",
+   "ActivityName",
+   "Duration",
+   "DisplayName",
+   "IsEnabled"
+  ]
+ },
+ "PcrCloseDoor": {
+  "type": "Lib.MGISP_960.VisualDesigner.Spx.Workflow.Commands.PcrCloseDoor, Lib.MGISP_960.VisualDesigner.Spx, Version=1.9.0.398, Culture=neutral, PublicKeyToken=null",
+  "fields": [
+   "ActivityType",
+   "ActivityName",
+   "PCRType",
+   "DisplayName",
+   "IsEnabled"
+  ]
+ },
+ "Dialog": {
+  "type": "Lib.MGISP_960.VisualDesigner.Spx.Workflow.Commands.Dialog, Lib.MGISP_960.VisualDesigner.Spx, Version=1.9.0.398, Culture=neutral, PublicKeyToken=null",
+  "fields": [
+   "ActivityType",
+   "ActivityName",
+   "Message",
+   "Caption",
+   "Tag",
+   "IsSetTimeout",
+   "Timeout",
+   "DisplayName",
+   "IsEnabled"
+  ]
+ },
+ "UpdateDeck": {
+  "type": "Lib.MGISP_960.VisualDesigner.Spx.Workflow.Commands.UpdateDeck, Lib.MGISP_960.VisualDesigner.Spx, Version=1.9.0.398, Culture=neutral, PublicKeyToken=null",
+  "fields": [
+   "ActivityType",
+   "ActivityName",
+   "Deck",
+   "DisplayName",
+   "IsEnabled"
+  ]
+ },
+ "MvKit": {
+  "type": "Lib.MGISP_960.VisualDesigner.Spx.Workflow.Commands.MvKit, Lib.MGISP_960.VisualDesigner.Spx, Version=1.9.0.398, Culture=neutral, PublicKeyToken=null",
+  "fields": [
+   "ActivityType",
+   "ActivityName",
+   "Source",
+   "Destination",
+   "IsMoveAll",
+   "IfJc",
+   "DisplayName",
+   "IsEnabled"
+  ]
+ },
+ "ShakeOn": {
+  "type": "Lib.MGISP_960.VisualDesigner.Spx.Workflow.Commands.ShakeOn, Lib.MGISP_960.VisualDesigner.Spx, Version=1.9.0.398, Culture=neutral, PublicKeyToken=null",
+  "fields": [
+   "ActivityType",
+   "ActivityName",
+   "Direct",
+   "DisplayName",
+   "IsEnabled",
+   "Rate"
+  ]
+ },
+ "ShakeOff": {
+  "type": "Lib.MGISP_960.VisualDesigner.Spx.Workflow.Commands.ShakeOff, Lib.MGISP_960.VisualDesigner.Spx, Version=1.9.0.398, Culture=neutral, PublicKeyToken=null",
+  "fields": [
+   "ActivityType",
+   "ActivityName",
+   "DisplayName",
+   "IsEnabled"
+  ]
+ },
+ "PcrStop": {
+  "type": "Lib.MGISP_960.VisualDesigner.Spx.Workflow.Commands.PcrStop, Lib.MGISP_960.VisualDesigner.Spx, Version=1.9.0.398, Culture=neutral, PublicKeyToken=null",
+  "fields": [
+   "ActivityType",
+   "ActivityName",
+   "PCRType",
+   "DisplayName",
+   "IsEnabled"
+  ]
+ },
+ "TempSleep": {
+  "type": "Lib.MGISP_960.VisualDesigner.Spx.Workflow.Commands.TempSleep, Lib.MGISP_960.VisualDesigner.Spx, Version=1.9.0.398, Culture=neutral, PublicKeyToken=null",
+  "fields": [
+   "ActivityType",
+   "ActivityName",
+   "TempType",
+   "DisplayName",
+   "IsEnabled"
+  ]
+ }
+}

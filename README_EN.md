@@ -65,6 +65,27 @@ interview, and a liquid-ledger catch of an 8x dosing error:
 
 **→ [Worked example: a library-prep manual → a complete WDesigner project](docs/worked-example-ultra2-dna-en.md)** — model & agent picks, the full 8-group interview, deck & liquid-ledger design, and the project opened in WDesigner on site:
 
+## Recommended Setup
+
+**Model: multimodal + long context** — workflow diagrams and loading tables in a
+manual must be read visually, and the per-step liquid-ledger details need a long
+context. You want both:
+
+![GLM-5.3-Flash](https://img.shields.io/badge/GLM--5.3--Flash-multimodal·1M_context-4B72E8)
+![DeepSeek](https://img.shields.io/badge/DeepSeek-multimodal-4D6BFE?logo=deepseek&logoColor=white)
+![Qwen](https://img.shields.io/badge/Qwen-multimodal-6F42C1?logo=qwen&logoColor=white)
+![Kimi](https://img.shields.io/badge/Kimi-multimodal-111111)
+
+**Agent: any coding agent that supports skill / custom-command extensions**:
+
+![Claude Code](https://img.shields.io/badge/Claude_Code-native-DA7756?logo=anthropic&logoColor=white)
+![Codex](https://img.shields.io/badge/Codex-supported-10A37F?logo=openai&logoColor=white)
+![WorkBuddy](https://img.shields.io/badge/WorkBuddy-supported-8A2BE2)
+
+> Why these picks: see the opening of the
+> [worked example](docs/worked-example-ultra2-dna-en.md) ("Choosing a Model and
+> an Agent").
+
 ## How to use
 
 ### Install

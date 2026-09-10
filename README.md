@@ -64,6 +64,25 @@
 
 **→ [实战案例：Ultra II DNA 建库说明书 → 完整 WDesigner 工程](docs/实战案例_UltraII-DNA建库.md)**
 
+## 推荐运行环境
+
+**模型：多模态 + 长上下文**——说明书里的流程图与加样表要靠视觉通道读，液量账本的
+逐条明细吃上下文长度，两者缺一不可：
+
+![GLM-5.3-Flash](https://img.shields.io/badge/GLM--5.3--Flash-多模态·百万上下文-4B72E8)
+![DeepSeek](https://img.shields.io/badge/DeepSeek-多模态-4D6BFE?logo=deepseek&logoColor=white)
+![Qwen](https://img.shields.io/badge/Qwen-多模态-6F42C1?logo=qwen&logoColor=white)
+![Kimi](https://img.shields.io/badge/Kimi-多模态-111111)
+
+**Agent：支持 skill / 自定义命令扩展的编码 Agent**：
+
+![Claude Code](https://img.shields.io/badge/Claude_Code-原生支持-DA7756?logo=anthropic&logoColor=white)
+![Codex](https://img.shields.io/badge/Codex-支持-10A37F?logo=openai&logoColor=white)
+![WorkBuddy](https://img.shields.io/badge/WorkBuddy-支持-8A2BE2)
+
+> 选型理由与实测记录见 [实战案例](docs/实战案例_UltraII-DNA建库.md) 开头的
+> "开始之前：模型与 Agent 怎么选"。
+
 ## 怎么用
 
 ### 安装

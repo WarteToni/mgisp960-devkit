@@ -63,7 +63,7 @@ A library-prep manual PDF downloaded from a vendor website, turned into a comple
 WDesigner project package — full walkthrough with screenshots, the 8-group requirement
 interview, and a liquid-ledger catch of an 8x dosing error:
 
-**→ [Worked example: Ultra II DNA library-prep manual → full WDesigner project](docs/实战案例_UltraII-DNA建库.md)** (Chinese, screenshots are language-neutral)
+**→ [Worked example: a library-prep manual → a complete WDesigner project](docs/worked-example-ultra2-dna-en.md)** — model & agent picks, the full 8-group interview, deck & liquid-ledger design, and the project opened in WDesigner on site:
 
 ## How to use
 

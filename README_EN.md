@@ -91,8 +91,6 @@ details need a long context. You want both:
 
 ## How to use
 
-## How to use
-
 ### Install
 
 ```bash

@@ -5,8 +5,9 @@
 > `scripts/spredo转wfp_生成器.py` AST 自动转换（已实战：一步法 444 节点工程）。
 
 > 格式结论来自对 1.9.0.395/398 运行环境的系统分析（两版结论一致；生成器与
-> schema 的程序集版本串现统一为 398，现场软件如为 395 版，把两处版本串同步
-> 替换即可——版本不匹配时 .NET 反序列化可能拒载，见踩坑库"395/398 混用"），
+> schema 的程序集版本串现统一为 **395**——作者现场实机版本，2026-09-10 实测
+> WDesigner 与四个 Spx DLL 均为 1.9.0.395；现场为其他版本时用 `--sw` 同步替换
+> ——版本不匹配时 .NET 反序列化**确证拒载**，实战见踩坑库"wfp 拒载诊断树"），
 > 已固化为正文（记录流布局/转换规则）与 `scripts/wfp活动schema.json`，
 > 日常使用自含、无需任何外部材料。
 
@@ -62,7 +63,7 @@
 ```
 BinaryFormatter 记录流
  ├─ "Release V1"                     根
- ├─ 工程名字符串（如 "oligodT capture"）
+ ├─ 工程名字符串（如 "My_Project"）
  ├─ .NET DateTime ×2                 创建/修改时间
  ├─ DeckModuleModel  (Deck.VisualDesigner.Spx, v1.8.0.323)
  │    └─ JSON: {"Name":"\\MainDeck/","IsMainDeck":true,"DeviceConfigName":"2",
@@ -77,6 +78,21 @@ BinaryFormatter 记录流
 
 **关键映射**：JSON 的 `PosInfos` 字段 ↔ spredo `first_feature` 7字段一一对应
 （KitName=耗材型号，Comment=名称，HaveCoverPlate/IsNeedReplace/IsAllowGripperAction）。
+
+**版本兼容性（wfp 特点，2026-09-10 实战）**：
+1. **wfp 与软件版本强相关**——每条记录写死程序集限定名（含 `Version=`），
+   .NET 反序列化按版本**精确匹配**。⚠️ 但"多余字段拒载"在 2026-09-10 Oligo
+   案例被**证伪**：395 成功打开含新版排空字段（EmptyForDispenseDely 等）的
+   文件——活动树经 `RootObject:JObject` 动态解析，字段层天然宽松；
+   schema 白名单仅作生成器的防御性过滤，不是拒载依据。
+2. 兼容性是**单向**的：高版本软件可打开低版本文件（398 开 395 可；395 现场
+   打开 1.8.0.323 老工程成功例），低版本打不开高版本产物须个案验证——
+   版本串精确匹配仍是红线，但"395 拒 398"当时归因存疑（见踩坑 §20，
+   同期存在布局错位问题未排除）。
+3. 现场间传文件铁律：**对齐版本最低的机器**；本 skill 生成器/模板默认 395
+   （作者现场实机，2026-09-10 实锤），他版现场 `--sw` 同步。
+4. "系统无法读取此项目文件"**先看日志再分析内容**：`C:\MGISP-960\WDesigner\Logs\Logs_日期.txt`
+   （log4net，完整异常堆栈）。诊断树见踩坑库 §20。
 
 ## 四、生成 WD 工程的可行路径（模板改造法）
 
@@ -101,7 +117,7 @@ BinaryFormatter 记录流
 AST 解析 spredo 脚本 → 活动树 JSON + 台面 JSON → wfp 记录流。首个产出：
 一步法 `RNA_Onestep.wfp`（168KB，444 活动节点，MainDeck+DESK2 双台面，
 顺序解析自检通过）。已实锤的转换规则：
-- 活动类型全名 = `Lib.MGISP_960.VisualDesigner.Spx.Workflow.Commands.<Name>, ...Version=1.9.0.398...`
+- 活动类型全名 = `Lib.MGISP_960.VisualDesigner.Spx.Workflow.Commands.<Name>, ...Version=1.9.0.395...`
 - 数值参数→字符串；WellType/Tips/LoopType/Direct/PCRType/TempType 保持 int
 - Position='POS21'→'21'；Well '6A'→Col='6' Row='1'
 - empty() = Dispense 活动 + IsEmpty:true
@@ -156,7 +172,7 @@ Async+WaitAsync、LanguageCondition（按软件语言走分支）、Dialog/Requi
 CJK 转义、separators 影响空格）；活动数值字段一律字符串（'150' 非 150）；
 回写重算每条记录 4B 大端长度前缀，21B 头与模块间 4B ff 原样保留。
 
-**断言式直改流程**（防误伤，V2.9 全程使用）：
+**断言式直改流程**（防误伤，捕获+建库双段交付实战全程使用）：
 1. DFS 拍平活动树（GlobalSequence→Block/Parallel→Branches/Body/Activities）
 2. 定位用 **pred + assert 计数**（如"P21 吸 108 且 Z=3.8"必须恰命中 1 处），
    绝不按序号猜——同名操作多处出现（循环/分装）时尤其如此
@@ -166,6 +182,73 @@ CJK 转义、separators 影响空格）；活动数值字段一律字符串（'1
 5. **用户在 WDesigner 手改后对账**：重 parse → 与上次审计快照逐活动 diff →
    重跑账本审计五项（排空带宽/吸液深度/混匀双约束/⚠裁决/尾字节）
 
-首例：V2.9 捕获+建库两工程全程直改交付（WDesigner 打开正常、模拟通过），
+首例：捕获+建库两工程全程直改交付（WDesigner 打开正常、模拟通过），
 工具为项目 `09_wfp工具/`（wfp_lib 解析器 + 账本 + 各修正器）；本 skill
 `scripts/账本_全流程液量模拟_模板.py` 内嵌同源解析器（只读不写）。
+
+## 八、产线惯例对齐（Reference-first · 2026-09-10 实战沉淀）
+
+> 背景：用最小骨架模板+生成器从零生成的 wfp **能打开但设计贫瘠**（台面缺位、
+> 流程平铺无 Block、活动全默认名）——用户退回。根因：最小骨架只是**字节锚点**
+> （9 条固定记录），不是质量基准；生成器转换的 spredo 脚本本身写得太"平"
+> （纯串行、无并行块），且生成器只覆盖语法子集。
+> **规范化质量基准 = 现场现役 .wfp（Reference），不是模板。**
+
+### 八.1 Reference-first 三步
+
+1. **S0 索要 Reference**：请用户提供一个现役 .wfp（**只读承诺，绝不可改**——
+   用户明确警告过）。从它**实证**两件事：软件版本串（看任意活动 ActivityType 的
+   `Version=`）+ 台面 24 位定义模式。禁止凭档案/记忆拍版本。
+2. **提取惯例档案**（对 Reference 逐项解析，一次成本，固化复用）：
+   - **台面**：24 位全定义（含空位），每位 13 字段；空位 KitName=null 但
+     PosType 按物理功能声明（磁架 6/温控 9/振荡 8/垃圾 10）；封闭 PCR 位
+     `PosType:3 + Available:false`；有板 PCR 位 `PosType:4`；
+     Comment1/2 = 新旧状态+用途（含装量标注），Comment3/4 成对（双语界面）
+   - **根结构**：Initialize + 少量 Block/Parallel（产线工程根下仅 5-9 个活动）；
+     逻辑按化学阶段装 **Block**（DisplayName=阶段语义名）；开机
+     **Parallel** = PCR 预热分支 × 首段液体操作分支
+   - **等待分工**：磁吸澄清/乙醇静置/干燥等**非温控等待用 Delay 活动**；
+     只有需要控温的孵育才 PcrRun；收尾 **PcrStop**
+   - **语义 DisplayName**：全活动中文命名（"试剂源吸取·XX 50µL"、"排空入废液"、
+     "混匀120µL×15·Z3.5↔10.7"、"循环·XX×12列"）——画布可读性核心
+   - **字段级**：Block/Parallel 子活动键 = `Activities`；Loop 子活动键 = `Body`；
+     PcrRun 方法名在 `Method: {Text, IsUseVariable, VariableName, DisplayName}`
+3. **生成链（2026-09-10 定，builder 优先）**：
+   - **首选 = `scripts/wfp_builder.py` 直接生成**（用户需求：不经 spredo/转换器）
+     ——API 直构活动树（block/parallel/loop/dely/pcr_stop/液体），语义命名与
+     循环公式生成时即写；样板 scripts/wfp_builder_示例.py（自证：与参考工程字段零差异）。
+   - 兼容 = 已有 spredo 脚本时：脚本按惯例组织（`parallel_block` 开机并行、
+     阶段 report() 划界、`dely()` 非温控等待、`pcr_stop_heating()` 收尾）→
+     `spredo转wfp_生成器` 转换 → `scripts/wfp后处理_模板.py`（阶段 Block 分组 +
+     语义命名 + 版本串归一；CONFIG①~⑤ 换项目真值，示例全假名）。
+
+### 八.2 96 头/8 头语义（部分板样本的通道分工硬约束）
+
+96 头只有**两种模式**：`Tips:96` = 全板一次（Col/Row=基准位）、`Tips:8` = 单列
+（仅 POS5 取头，第 12 列移液头）。**没有"96 头逐列"**。因此：
+- 样本不满板（如 4 列）时，小体积试剂分装/磁珠/洗脱/产物**必须 8 头逐列**
+  （储液板装不满 96 孔，96 头全板吸会吸空孔）
+- 96 头全板任务只适合"储液与目标都天然整板"的操作：弃上清、乙醇洗
+  （乙醇板/废液板整板装）。注意：会把液体打到样本板空列——空列污染无化学
+  影响、多耗试剂，设计时要明示并算进装量
+- 8 头逐列的总列数 >12 时需要换盒：把换盒点**嵌进既有 PCR 温育窗口或弹窗**
+  （换盒提示写进弹窗文本），不新增人工干预次数
+
+### 八.3 交付前结构对齐检查（新增，生成器自检之外）
+
+| 检查 | 通过标准 |
+|---|---|
+| 根下活动数 | 个位数（Initialize+Block/Parallel），不是几十个平铺 |
+| 台面 | MainDeck 与每个 DESK 均 24 位全定义；禁用位写法与 Reference 一致 |
+| 版本串 | 与 Reference 逐类型一致（`grep Version=` 全文件归一） |
+| 语义命名 | 无裸 "Aspirate/Dispense" 默认名（Initialize/门开关除外） |
+| 文件头 | hexdump 前 48B：`Release V1` + 工程名记录完整（post 写出 bug 检测） |
+| parse 断言 | 尾余=0；活动统计与脚本 AST 对得上 |
+
+### 八.4 实战坑录（详见 08 #21–#24）
+
+① 版本串 398 文件在 395 现场软件报"项目文件版本高，升级系统"——版本必须实证；
+   等长字符串可字节级替换补救。② post 写出把字符串记录写成 r[1]（字符索引），
+   文件头变 'e'/'r' 单字符记录——写出后必 hexdump 头。③ 生成器 `range(0,4)`
+   双参 → LoopCount=0 全循环跳过；裸循环变量 Col→'None'（必须表达式 col+1）；
+   行尾注释可致语句块吞行。④ 8 头操作漏 `'Tips':8` 默认按 96 全板执行。

@@ -240,10 +240,11 @@ are filled in and the project is finalized.
 1. **Prepare**: the manual PDF (a public one is fine) plus three hardware facts
    (device configuration number, magnet-rack plate format, software version) —
    S0 will ask for all of them;
-2. **Model**: multimodal + long context (GLM-5.3-Flash / DeepSeek / Qwen /
-   Kimi, multimodal tiers);
-3. **Agent**: Claude Code, Codex, WorkBuddy, or any coding agent that supports
-   skill extensions;
+2. **Model**: multimodal + long context (e.g. GLM-5.3-Flash, Kimi K3,
+   Qwen3.8 Max, DeepSeek V4; international alternatives: Gemini 3.5 Flash /
+   GPT-5.6 Sol / Claude Opus 4.8);
+3. **Agent**: Claude Code, Codex, Gemini CLI, OpenCode — any coding agent that
+   supports the Agent Skills standard (SKILL.md);
 4. **Trigger**: `/mgisp960-devkit There is a library-prep manual in this
    folder — build me a WDesigner project`;
 5. **Cooperate**: answer the 8 interview groups (each has a recommended option,

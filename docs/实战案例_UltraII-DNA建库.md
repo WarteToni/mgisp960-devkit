@@ -179,8 +179,10 @@ POS11 反应板写着"DNA 50μL/孔 常驻"，POS21 试剂板逐列标了装量�
 
 1. **准备**：说明书 PDF（官网公开的即可）+ 现场硬件三件事（设备配置号、磁架口径、
    软件版本号）——S0 都会问到；
-2. **模型**：多模态 + 长上下文（GLM-5.3-Flash / DeepSeek / Qwen / Kimi 的多模态档）；
-3. **Agent**：Claude Code、Codex、WorkBuddy 等支持 skill 扩展的编码 Agent；
+2. **模型**：多模态 + 长上下文（如 GLM-5.3-Flash、Kimi K3、Qwen3.8 Max、DeepSeek V4，
+   国际备选 Gemini 3.5 Flash / GPT-5.6 Sol / Claude Opus 4.8）；
+3. **Agent**：Claude Code、Codex、Gemini CLI、OpenCode 等，凡支持 Agent Skills
+   标准（SKILL.md）的编码 Agent 均可；
 4. **触发**：`/mgisp960-devkit 这个目录里有一份建库试剂盒说明书，帮我生成 WDesigner 工程`；
 5. **配合**：回答 8 组确认题（都有推荐项，可直接"按推荐"），在化学分歧点和无法直译
    的手工步骤上拍板；

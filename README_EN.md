@@ -162,6 +162,12 @@ model numbers are mentioned for compatibility description only. Before running a
 program generated with this project on an instrument, verify it yourself and follow
 the official operating guidelines of the instrument and reagents.
 
+## Special Thanks
+
+Thanks to a few old friends whose names I will leave unmentioned — they come from what I consider the most badass, most dedicated team at MGI: **they can talk the talk, they can walk the walk, and they can most definitely drink.** The hardware knowledge, instrument-calibrated parameters, and many of the "you'd only know if you've run the machine" details in this skill would not be there without their support and help.
+
+Maintenance, updates, and future development of this skill now pass to the community — issues and PRs are welcome.
+
 ## License
 
 [MIT](LICENSE) — use, modify, and distribute freely; just keep the copyright notice.

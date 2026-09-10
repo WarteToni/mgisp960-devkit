@@ -2,10 +2,10 @@
 """
 最小骨架 .wfp 模板合成器 —— 零依赖生成合法 WDesigner 工程骨架（仓库自带模板的来源）
 
-用法：python3 最小骨架wfp_合成器.py [输出.wfp] [--sw 1.9.0.398]
+用法：python3 最小骨架wfp_合成器.py [输出.wfp] [--sw 1.9.0.395]
   输出默认 = 本脚本同目录的 最小骨架模板.wfp
-  --sw     活动程序集版本串（默认 1.9.0.398；现场软件为 1.9.0.395 时
-           用 --sw 1.9.0.395 重生成，模块类型库版本 1.8.0.323 与软件版本无关、恒定）
+  --sw     活动程序集版本串（默认 1.9.0.395，与作者现场实机一致；现场软件为
+           1.9.0.398 时用 --sw 1.9.0.398 重生成，模块类型库版本 1.8.0.323 与软件版本无关、恒定）
 
 产物：单换台最小合法工程（模块计数=3）：
   MainDeck + Workflow + DESK 2
@@ -29,7 +29,7 @@ import json, os, struct, sys
 
 # ── 参数 ────────────────────────────────────────────────
 args = [a for a in sys.argv[1:]]
-SW = "1.9.0.398"
+SW = "1.9.0.395"
 if "--sw" in args:
     i = args.index("--sw"); SW = args[i + 1]; del args[i:i + 2]
 OUT = args[0] if args else os.path.join(os.path.dirname(os.path.abspath(__file__)), "最小骨架模板.wfp")

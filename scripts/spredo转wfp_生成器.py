@@ -12,12 +12,12 @@ spredo 脚本 → WDesigner .wfp 工程生成器（通用版）
 import ast, json, os, struct, sys
 
 USAGE = ("用法: python3 spredo转wfp_生成器.py <spredo脚本.py> <模板.wfp> <输出.wfp> "
-         "[工程名] [固定PCR方法名] [--sw 1.9.0.398]")
+         "[工程名] [固定PCR方法名] [--sw 1.9.0.395]")
 if len(sys.argv) < 4:
     print(USAGE)
     sys.exit(1)
 _args = list(sys.argv[1:])
-SW = "1.9.0.398"                                              # 现场软件 1.9.0.395 时用 --sw 切换
+SW = "1.9.0.395"                                              # 现场实机版本（2026-09-10 实锤）；他版软件用 --sw 切换
 if "--sw" in _args:
     _i = _args.index("--sw"); SW = _args[_i + 1]; del _args[_i:_i + 2]
 SRC, TPL, OUT = _args[0], _args[1], _args[2]
@@ -31,11 +31,13 @@ def C(name): return f"Common.WorkflowDesigner.Spx.Core.{name}, {CORE}"
 
 S = lambda v: str(v)          # 数值→字符串
 _BASE = os.path.dirname(os.path.abspath(__file__))   # schema 随脚本走，与工作目录无关
-SCHEMA = {k: {**v, "type": v["type"].replace("1.9.0.398", SW)} for k, v in
+SCHEMA = {k: {**v, "type": v["type"].replace("1.9.0.395", SW)} for k, v in
           json.load(open(os.path.join(_BASE, "wfp活动schema.json"), encoding="utf-8")).items()}
 
 def sanitize(a):
-    """按原厂 schema 白名单过滤字段 + 排序 + 用权威完整类型名（反序列化器严格，多余字段即拒）"""
+    """按原厂 schema 白名单过滤字段 + 排序 + 用权威完整类型名
+    （防御性设计：395 实测活动层 JObject 动态解析、未知字段可打开，
+    但生成器只产出 schema 验证过的字段，不依赖宽松解析）"""
     short = a["ActivityType"].split(",")[0].split(".")[-1]
     sch = SCHEMA[short]
     out = {}

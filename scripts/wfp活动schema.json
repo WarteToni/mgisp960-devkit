@@ -1,6 +1,6 @@
 {
  "GlobalSequence": {
-  "type": "Common.WorkflowDesigner.Spx.Core.GlobalSequence, Common.WorkflowDesigner.Spx, Version=1.9.0.398, Culture=neutral, PublicKeyToken=null",
+  "type": "Common.WorkflowDesigner.Spx.Core.GlobalSequence, Common.WorkflowDesigner.Spx, Version=1.9.0.395, Culture=neutral, PublicKeyToken=null",
   "fields": [
    "ActivityType",
    "ActivityName",
@@ -10,7 +10,7 @@
   ]
  },
  "Block": {
-  "type": "Common.WorkflowDesigner.Spx.Core.Block, Common.WorkflowDesigner.Spx, Version=1.9.0.398, Culture=neutral, PublicKeyToken=null",
+  "type": "Common.WorkflowDesigner.Spx.Core.Block, Common.WorkflowDesigner.Spx, Version=1.9.0.395, Culture=neutral, PublicKeyToken=null",
   "fields": [
    "ActivityType",
    "ActivityName",
@@ -21,7 +21,7 @@
   ]
  },
  "Initialize": {
-  "type": "Lib.MGISP_960.VisualDesigner.Spx.Workflow.Commands.Initialize, Lib.MGISP_960.VisualDesigner.Spx, Version=1.9.0.398, Culture=neutral, PublicKeyToken=null",
+  "type": "Lib.MGISP_960.VisualDesigner.Spx.Workflow.Commands.Initialize, Lib.MGISP_960.VisualDesigner.Spx, Version=1.9.0.395, Culture=neutral, PublicKeyToken=null",
   "fields": [
    "ActivityType",
    "ActivityName",
@@ -31,7 +31,7 @@
   ]
  },
  "PcrOpenDoor": {
-  "type": "Lib.MGISP_960.VisualDesigner.Spx.Workflow.Commands.PcrOpenDoor, Lib.MGISP_960.VisualDesigner.Spx, Version=1.9.0.398, Culture=neutral, PublicKeyToken=null",
+  "type": "Lib.MGISP_960.VisualDesigner.Spx.Workflow.Commands.PcrOpenDoor, Lib.MGISP_960.VisualDesigner.Spx, Version=1.9.0.395, Culture=neutral, PublicKeyToken=null",
   "fields": [
    "ActivityType",
    "ActivityName",
@@ -41,7 +41,7 @@
   ]
  },
  "Parallel": {
-  "type": "Common.WorkflowDesigner.Spx.Core.Parallel, Common.WorkflowDesigner.Spx, Version=1.9.0.398, Culture=neutral, PublicKeyToken=null",
+  "type": "Common.WorkflowDesigner.Spx.Core.Parallel, Common.WorkflowDesigner.Spx, Version=1.9.0.395, Culture=neutral, PublicKeyToken=null",
   "fields": [
    "ActivityType",
    "ActivityName",
@@ -51,7 +51,7 @@
   ]
  },
  "TempSet": {
-  "type": "Lib.MGISP_960.VisualDesigner.Spx.Workflow.Commands.TempSet, Lib.MGISP_960.VisualDesigner.Spx, Version=1.9.0.398, Culture=neutral, PublicKeyToken=null",
+  "type": "Lib.MGISP_960.VisualDesigner.Spx.Workflow.Commands.TempSet, Lib.MGISP_960.VisualDesigner.Spx, Version=1.9.0.395, Culture=neutral, PublicKeyToken=null",
   "fields": [
    "ActivityType",
    "ActivityName",
@@ -62,7 +62,7 @@
   ]
  },
  "PcrRun": {
-  "type": "Lib.MGISP_960.VisualDesigner.Spx.Workflow.Commands.PcrRun, Lib.MGISP_960.VisualDesigner.Spx, Version=1.9.0.398, Culture=neutral, PublicKeyToken=null",
+  "type": "Lib.MGISP_960.VisualDesigner.Spx.Workflow.Commands.PcrRun, Lib.MGISP_960.VisualDesigner.Spx, Version=1.9.0.395, Culture=neutral, PublicKeyToken=null",
   "fields": [
    "ActivityType",
    "ActivityName",
@@ -73,7 +73,7 @@
   ]
  },
  "Report": {
-  "type": "Lib.MGISP_960.VisualDesigner.Spx.Workflow.Commands.Report, Lib.MGISP_960.VisualDesigner.Spx, Version=1.9.0.398, Culture=neutral, PublicKeyToken=null",
+  "type": "Lib.MGISP_960.VisualDesigner.Spx.Workflow.Commands.Report, Lib.MGISP_960.VisualDesigner.Spx, Version=1.9.0.395, Culture=neutral, PublicKeyToken=null",
   "fields": [
    "ActivityType",
    "ActivityName",
@@ -84,7 +84,7 @@
   ]
  },
  "LoadTips": {
-  "type": "Lib.MGISP_960.VisualDesigner.Spx.Workflow.Commands.LoadTips, Lib.MGISP_960.VisualDesigner.Spx, Version=1.9.0.398, Culture=neutral, PublicKeyToken=null",
+  "type": "Lib.MGISP_960.VisualDesigner.Spx.Workflow.Commands.LoadTips, Lib.MGISP_960.VisualDesigner.Spx, Version=1.9.0.395, Culture=neutral, PublicKeyToken=null",
   "fields": [
    "ActivityType",
    "ActivityName",
@@ -98,7 +98,7 @@
   ]
  },
  "Aspirate": {
-  "type": "Lib.MGISP_960.VisualDesigner.Spx.Workflow.Commands.Aspirate, Lib.MGISP_960.VisualDesigner.Spx, Version=1.9.0.398, Culture=neutral, PublicKeyToken=null",
+  "type": "Lib.MGISP_960.VisualDesigner.Spx.Workflow.Commands.Aspirate, Lib.MGISP_960.VisualDesigner.Spx, Version=1.9.0.395, Culture=neutral, PublicKeyToken=null",
   "fields": [
    "ActivityType",
    "ActivityName",
@@ -119,7 +119,7 @@
   ]
  },
  "Dispense": {
-  "type": "Lib.MGISP_960.VisualDesigner.Spx.Workflow.Commands.Dispense, Lib.MGISP_960.VisualDesigner.Spx, Version=1.9.0.398, Culture=neutral, PublicKeyToken=null",
+  "type": "Lib.MGISP_960.VisualDesigner.Spx.Workflow.Commands.Dispense, Lib.MGISP_960.VisualDesigner.Spx, Version=1.9.0.395, Culture=neutral, PublicKeyToken=null",
   "fields": [
    "ActivityType",
    "ActivityName",
@@ -142,7 +142,7 @@
   ]
  },
  "Loop": {
-  "type": "Common.WorkflowDesigner.Spx.Core.Loop, Common.WorkflowDesigner.Spx, Version=1.9.0.398, Culture=neutral, PublicKeyToken=null",
+  "type": "Common.WorkflowDesigner.Spx.Core.Loop, Common.WorkflowDesigner.Spx, Version=1.9.0.395, Culture=neutral, PublicKeyToken=null",
   "fields": [
    "ActivityType",
    "ActivityName",
@@ -155,7 +155,7 @@
   ]
  },
  "UnloadTips": {
-  "type": "Lib.MGISP_960.VisualDesigner.Spx.Workflow.Commands.UnloadTips, Lib.MGISP_960.VisualDesigner.Spx, Version=1.9.0.398, Culture=neutral, PublicKeyToken=null",
+  "type": "Lib.MGISP_960.VisualDesigner.Spx.Workflow.Commands.UnloadTips, Lib.MGISP_960.VisualDesigner.Spx, Version=1.9.0.395, Culture=neutral, PublicKeyToken=null",
   "fields": [
    "ActivityType",
    "ActivityName",
@@ -169,7 +169,7 @@
   ]
  },
  "Mix": {
-  "type": "Lib.MGISP_960.VisualDesigner.Spx.Workflow.Commands.Mix, Lib.MGISP_960.VisualDesigner.Spx, Version=1.9.0.398, Culture=neutral, PublicKeyToken=null",
+  "type": "Lib.MGISP_960.VisualDesigner.Spx.Workflow.Commands.Mix, Lib.MGISP_960.VisualDesigner.Spx, Version=1.9.0.395, Culture=neutral, PublicKeyToken=null",
   "fields": [
    "ActivityType",
    "ActivityName",
@@ -196,7 +196,7 @@
   ]
  },
  "Delay": {
-  "type": "Lib.MGISP_960.VisualDesigner.Spx.Workflow.Commands.Delay, Lib.MGISP_960.VisualDesigner.Spx, Version=1.9.0.398, Culture=neutral, PublicKeyToken=null",
+  "type": "Lib.MGISP_960.VisualDesigner.Spx.Workflow.Commands.Delay, Lib.MGISP_960.VisualDesigner.Spx, Version=1.9.0.395, Culture=neutral, PublicKeyToken=null",
   "fields": [
    "ActivityType",
    "ActivityName",
@@ -206,7 +206,7 @@
   ]
  },
  "PcrCloseDoor": {
-  "type": "Lib.MGISP_960.VisualDesigner.Spx.Workflow.Commands.PcrCloseDoor, Lib.MGISP_960.VisualDesigner.Spx, Version=1.9.0.398, Culture=neutral, PublicKeyToken=null",
+  "type": "Lib.MGISP_960.VisualDesigner.Spx.Workflow.Commands.PcrCloseDoor, Lib.MGISP_960.VisualDesigner.Spx, Version=1.9.0.395, Culture=neutral, PublicKeyToken=null",
   "fields": [
    "ActivityType",
    "ActivityName",
@@ -216,7 +216,7 @@
   ]
  },
  "Dialog": {
-  "type": "Lib.MGISP_960.VisualDesigner.Spx.Workflow.Commands.Dialog, Lib.MGISP_960.VisualDesigner.Spx, Version=1.9.0.398, Culture=neutral, PublicKeyToken=null",
+  "type": "Lib.MGISP_960.VisualDesigner.Spx.Workflow.Commands.Dialog, Lib.MGISP_960.VisualDesigner.Spx, Version=1.9.0.395, Culture=neutral, PublicKeyToken=null",
   "fields": [
    "ActivityType",
    "ActivityName",
@@ -230,7 +230,7 @@
   ]
  },
  "UpdateDeck": {
-  "type": "Lib.MGISP_960.VisualDesigner.Spx.Workflow.Commands.UpdateDeck, Lib.MGISP_960.VisualDesigner.Spx, Version=1.9.0.398, Culture=neutral, PublicKeyToken=null",
+  "type": "Lib.MGISP_960.VisualDesigner.Spx.Workflow.Commands.UpdateDeck, Lib.MGISP_960.VisualDesigner.Spx, Version=1.9.0.395, Culture=neutral, PublicKeyToken=null",
   "fields": [
    "ActivityType",
    "ActivityName",
@@ -240,7 +240,7 @@
   ]
  },
  "MvKit": {
-  "type": "Lib.MGISP_960.VisualDesigner.Spx.Workflow.Commands.MvKit, Lib.MGISP_960.VisualDesigner.Spx, Version=1.9.0.398, Culture=neutral, PublicKeyToken=null",
+  "type": "Lib.MGISP_960.VisualDesigner.Spx.Workflow.Commands.MvKit, Lib.MGISP_960.VisualDesigner.Spx, Version=1.9.0.395, Culture=neutral, PublicKeyToken=null",
   "fields": [
    "ActivityType",
    "ActivityName",
@@ -253,7 +253,7 @@
   ]
  },
  "ShakeOn": {
-  "type": "Lib.MGISP_960.VisualDesigner.Spx.Workflow.Commands.ShakeOn, Lib.MGISP_960.VisualDesigner.Spx, Version=1.9.0.398, Culture=neutral, PublicKeyToken=null",
+  "type": "Lib.MGISP_960.VisualDesigner.Spx.Workflow.Commands.ShakeOn, Lib.MGISP_960.VisualDesigner.Spx, Version=1.9.0.395, Culture=neutral, PublicKeyToken=null",
   "fields": [
    "ActivityType",
    "ActivityName",
@@ -264,7 +264,7 @@
   ]
  },
  "ShakeOff": {
-  "type": "Lib.MGISP_960.VisualDesigner.Spx.Workflow.Commands.ShakeOff, Lib.MGISP_960.VisualDesigner.Spx, Version=1.9.0.398, Culture=neutral, PublicKeyToken=null",
+  "type": "Lib.MGISP_960.VisualDesigner.Spx.Workflow.Commands.ShakeOff, Lib.MGISP_960.VisualDesigner.Spx, Version=1.9.0.395, Culture=neutral, PublicKeyToken=null",
   "fields": [
    "ActivityType",
    "ActivityName",
@@ -273,7 +273,7 @@
   ]
  },
  "PcrStop": {
-  "type": "Lib.MGISP_960.VisualDesigner.Spx.Workflow.Commands.PcrStop, Lib.MGISP_960.VisualDesigner.Spx, Version=1.9.0.398, Culture=neutral, PublicKeyToken=null",
+  "type": "Lib.MGISP_960.VisualDesigner.Spx.Workflow.Commands.PcrStop, Lib.MGISP_960.VisualDesigner.Spx, Version=1.9.0.395, Culture=neutral, PublicKeyToken=null",
   "fields": [
    "ActivityType",
    "ActivityName",
@@ -283,7 +283,7 @@
   ]
  },
  "TempSleep": {
-  "type": "Lib.MGISP_960.VisualDesigner.Spx.Workflow.Commands.TempSleep, Lib.MGISP_960.VisualDesigner.Spx, Version=1.9.0.398, Culture=neutral, PublicKeyToken=null",
+  "type": "Lib.MGISP_960.VisualDesigner.Spx.Workflow.Commands.TempSleep, Lib.MGISP_960.VisualDesigner.Spx, Version=1.9.0.395, Culture=neutral, PublicKeyToken=null",
   "fields": [
    "ActivityType",
    "ActivityName",

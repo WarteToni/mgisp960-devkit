@@ -9,15 +9,22 @@
 
 **模型务必选多模态的（能读图），并且尽量选长上下文（百万级 token）的档位。**
 原因有二：说明书里的流程图、加样表、表格脚注是纯文本抽取必丢的部分，必须靠视觉
-通道读；后面液量账本的逐条明细也吃上下文长度。国内可选的多模态模型例如：
+通道读；后面液量账本的逐条明细也吃上下文长度。以下为 2026-09 检索的推荐：
 
-- **GLM-5.3-Flash**（多模态、百万级上下文——本案例即用它全程跑完）
-- **DeepSeek** 的多模态模型
-- **Qwen** 的多模态模型
-- **Kimi** 的多模态模型
+| 推荐 | 模型 | 上下文 |
+|---|---|---|
+| 本案例实测 | GLM-5.3-Flash | 百万级 |
+| 国产多模态 | Kimi K3（月之暗面）、Qwen3.8 Max（阿里）、DeepSeek V4 | 1M 级 |
+| 国际备选 | Gemini 3.5 Flash、GPT-5.6 Sol、Claude Opus 4.8 | 1M 级 |
 
-Agent 用支持 skill / 自定义命令扩展的编码 Agent 即可，例如 **Claude Code、Codex、
-WorkBuddy** 等。本案例在 Claude Code 中以 `/mgisp960-devkit` 触发。
+Agent 用支持 **Agent Skills 标准（SKILL.md）** 的编码 Agent 即可。本案例在
+Claude Code 中以 `/mgisp960-devkit` 触发；同类的还有：
+
+- **Claude Code**——原生支持（本案例实测）
+- **Codex**——原生支持 Agent Skills
+- **Gemini CLI**——官方支持开放格式
+- **OpenCode / Cline / Roo / Kilo**——开源系，直接读 SKILL.md
+- **WorkBuddy**
 
 ## 输入与产出
 

@@ -13,18 +13,24 @@
 million-token context window.** Two reasons: the workflow diagrams, loading
 tables, and fine-print footnotes in a manual are inevitably lost by text-only
 extraction, so they must be read visually; and the per-step liquid-ledger
-details later in the run benefit from a long context. Multimodal models worth
-considering include:
+details later in the run benefit from a long context. Recommendations as of
+September 2026:
 
-- **GLM-5.3-Flash** (multimodal, million-token context — this very case ran on
-  it end to end)
-- **DeepSeek** multimodal models
-- **Qwen** multimodal models
-- **Kimi** multimodal models
+| Pick | Models | Context |
+|---|---|---|
+| Used in this case | GLM-5.3-Flash | million-token |
+| Multimodal, strong open options | Kimi K3 (Moonshot), Qwen3.8 Max (Alibaba), DeepSeek V4 | ~1M |
+| International alternatives | Gemini 3.5 Flash, GPT-5.6 Sol, Claude Opus 4.8 | ~1M |
 
-As for the Agent, any coding agent that supports skill / custom-command
-extensions works — for example **Claude Code, Codex, or WorkBuddy**. This case
-was triggered with `/mgisp960-devkit` in Claude Code.
+For the Agent, anything that supports the **Agent Skills standard (SKILL.md)**
+works. This case was triggered with `/mgisp960-devkit` in Claude Code; peers
+include:
+
+- **Claude Code** — native support (used in this case)
+- **Codex** — native Agent Skills support
+- **Gemini CLI** — officially supports the open format
+- **OpenCode / Cline / Roo / Kilo** — open-source agents that read SKILL.md
+- **WorkBuddy**
 
 ## Input and Output
 

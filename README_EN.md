@@ -67,24 +67,29 @@ interview, and a liquid-ledger catch of an 8x dosing error:
 
 ## Recommended Setup
 
-**Model: multimodal + long context** — workflow diagrams and loading tables in a
-manual must be read visually, and the per-step liquid-ledger details need a long
-context. You want both:
+**Model: multimodal + long context** (retrieved 2026-09) — workflow diagrams and
+loading tables in a manual must be read visually, and the per-step liquid-ledger
+details need a long context. You want both:
 
-![GLM-5.3-Flash](https://img.shields.io/badge/GLM--5.3--Flash-multimodal·1M_context-4B72E8)
-![DeepSeek](https://img.shields.io/badge/DeepSeek-multimodal-4D6BFE?logo=deepseek&logoColor=white)
-![Qwen](https://img.shields.io/badge/Qwen-multimodal-6F42C1?logo=qwen&logoColor=white)
-![Kimi](https://img.shields.io/badge/Kimi-multimodal-111111)
+| Pick | Models | Context |
+|---|---|---|
+| Used in this case | GLM-5.3-Flash | million-token |
+| Multimodal, strong open options | Kimi K3, Qwen3.8 Max, DeepSeek V4 | ~1M |
+| International alternatives | Gemini 3.5 Flash, GPT-5.6 Sol, Claude Opus 4.8 | ~1M |
 
-**Agent: any coding agent that supports skill / custom-command extensions**:
+**Agent: coding agents that support the Agent Skills standard (SKILL.md)**:
 
-![Claude Code](https://img.shields.io/badge/Claude_Code-native-DA7756?logo=anthropic&logoColor=white)
-![Codex](https://img.shields.io/badge/Codex-supported-10A37F?logo=openai&logoColor=white)
-![WorkBuddy](https://img.shields.io/badge/WorkBuddy-supported-8A2BE2)
+- **Claude Code** — native support, used in this case
+- **Codex** — native Agent Skills support
+- **Gemini CLI** — officially supports the open format
+- **OpenCode / Cline / Roo / Kilo** — open-source agents that read SKILL.md
+- **WorkBuddy**
 
 > Why these picks: see the opening of the
 > [worked example](docs/worked-example-ultra2-dna-en.md) ("Choosing a Model and
 > an Agent").
+
+## How to use
 
 ## How to use
 

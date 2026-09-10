@@ -57,6 +57,14 @@ Item 4 is what sets this skill apart: beyond syntax checking, every liquid-handl
 
 <p align="center"><img src="assets/manual-deck.png" width="380" alt="Automation manual — deck layout"/><br><sub>Automation manual (deck layout / swap checklists / thermal methods / QC & FAQ)</sub></p>
 
+## Worked Example
+
+A library-prep manual PDF downloaded from a vendor website, turned into a complete
+WDesigner project package — full walkthrough with screenshots, the 8-group requirement
+interview, and a liquid-ledger catch of an 8x dosing error:
+
+**→ [Worked example: Ultra II DNA library-prep manual → full WDesigner project](docs/实战案例_UltraII-DNA建库.md)** (Chinese, screenshots are language-neutral)
+
 ## How to use
 
 ### Install

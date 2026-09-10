@@ -57,6 +57,13 @@
 
 <p align="center"><img src="assets/manual-deck.png" width="380" alt="自动化说明书 · 台面布置"/><br><sub>自动化说明书（台面布置 / 换台清单 / 温控程序表 / 质控常见问题）</sub></p>
 
+## 实战案例
+
+一份从官网随手下载的建库试剂盒说明书 PDF，到能在 WDesigner 打开、可模拟可上机的
+完整工程交付包——全过程实录（含截图、8 组需求确认、账本拦截的 8 倍剂量错误）：
+
+**→ [实战案例：Ultra II DNA 建库说明书 → 完整 WDesigner 工程](docs/实战案例_UltraII-DNA建库.md)**
+
 ## 怎么用
 
 ### 安装

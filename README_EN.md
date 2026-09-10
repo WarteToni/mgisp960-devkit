@@ -164,9 +164,11 @@ the official operating guidelines of the instrument and reagents.
 
 ## Special Thanks
 
-Thanks to a few old friends whose names I will leave unmentioned — they come from what I consider the most badass, most dedicated team at MGI: **they can talk the talk, they can walk the walk, and they can most definitely drink.** The hardware knowledge, instrument-calibrated parameters, and many of the "you'd only know if you've run the machine" details in this skill would not be there without their support and help.
+Thanks to several old friends whose names I can't disclose.
 
-Maintenance, updates, and future development of this skill now pass to the community — issues and PRs are welcome.
+They come from what I consider MGI's most awesome and dedicated team—a team that **can talk, can do, and knows how to party**. The hardware knowledge, real-world parameters, and tons of details that "only those who've worked on the machines know" couldn't have been possible without their support and help.
+
+The ongoing maintenance, updates, and development of this skill will be driven by community contributors—so feel free to open issues and submit PRs.
 
 ## License
 

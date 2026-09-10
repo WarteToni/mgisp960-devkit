@@ -12,22 +12,27 @@ spredo 脚本 → WDesigner .wfp 工程生成器（通用版）
 import ast, json, os, struct, sys
 
 USAGE = ("用法: python3 spredo转wfp_生成器.py <spredo脚本.py> <模板.wfp> <输出.wfp> "
-         "[工程名] [固定PCR方法名]")
+         "[工程名] [固定PCR方法名] [--sw 1.9.0.398]")
 if len(sys.argv) < 4:
     print(USAGE)
     sys.exit(1)
-SRC, TPL, OUT = sys.argv[1], sys.argv[2], sys.argv[3]
-PROJ_NAME = sys.argv[4] if len(sys.argv) > 4 else os.path.splitext(os.path.basename(OUT))[0]
-FIXED_PCR = sys.argv[5] if len(sys.argv) > 5 else "PCR_14C"   # require2 替代：固定循环方法
+_args = list(sys.argv[1:])
+SW = "1.9.0.398"                                              # 现场软件 1.9.0.395 时用 --sw 切换
+if "--sw" in _args:
+    _i = _args.index("--sw"); SW = _args[_i + 1]; del _args[_i:_i + 2]
+SRC, TPL, OUT = _args[0], _args[1], _args[2]
+PROJ_NAME = _args[3] if len(_args) > 3 else os.path.splitext(os.path.basename(OUT))[0]
+FIXED_PCR = _args[4] if len(_args) > 4 else "PCR_14C"   # require2 替代：固定循环方法
 
-ASM = "Lib.MGISP_960.VisualDesigner.Spx, Version=1.9.0.398, Culture=neutral, PublicKeyToken=null"
-CORE = "Common.WorkflowDesigner.Spx, Version=1.9.0.398, Culture=neutral, PublicKeyToken=null"
+ASM = f"Lib.MGISP_960.VisualDesigner.Spx, Version={SW}, Culture=neutral, PublicKeyToken=null"
+CORE = f"Common.WorkflowDesigner.Spx, Version={SW}, Culture=neutral, PublicKeyToken=null"
 def A(name): return f"Lib.MGISP_960.VisualDesigner.Spx.Workflow.Commands.{name}, {ASM}"
 def C(name): return f"Common.WorkflowDesigner.Spx.Core.{name}, {CORE}"
 
 S = lambda v: str(v)          # 数值→字符串
 _BASE = os.path.dirname(os.path.abspath(__file__))   # schema 随脚本走，与工作目录无关
-SCHEMA = {k: v for k, v in json.load(open(os.path.join(_BASE, "wfp活动schema.json"), encoding="utf-8")).items()}
+SCHEMA = {k: {**v, "type": v["type"].replace("1.9.0.398", SW)} for k, v in
+          json.load(open(os.path.join(_BASE, "wfp活动schema.json"), encoding="utf-8")).items()}
 
 def sanitize(a):
     """按原厂 schema 白名单过滤字段 + 排序 + 用权威完整类型名（反序列化器严格，多余字段即拒）"""
@@ -296,10 +301,18 @@ desk2 = build_deck('SWAP1_POS', 'DESK 2', False)
 
 # ── wfp 记录流写出（模板骨架 + 新载荷）──────────────────
 tpl = open(TPL, 'rb').read()
-# 固定头25B（工程名记录后）：int32(1)+'2'(配置号)+DateTime×2+int32(模块计数)
-# 模块计数必须与实际模块数一致（MainDeck+Workflow+每换台一个DESK），否则解析器读到EOF报错
+# 头部动态定位（不依赖模板工程名长度）：
+#   [14B Release 记录][4+L 工程名记录][5B '2' 记录][16B DateTime×2][4B 模块计数][Deck类型名记录]
+name_len = struct.unpack('>I', tpl[14:18])[0]
+HEAD0 = 14 + 4 + name_len
+assert tpl[HEAD0:HEAD0+4] == struct.pack('>I', 1) and tpl[HEAD0+4:HEAD0+5] == b'2', \
+    "模板头部布局异常：'2' 配置号记录不在预期位置（确认模板是 WDesigner 保存的 .wfp 工程）"
+cnt = struct.unpack('>I', tpl[HEAD0+21:HEAD0+25])[0]
+assert 2 <= cnt <= 6 and struct.unpack('>I', tpl[HEAD0+25:HEAD0+29])[0] == 121, \
+    "模板头部布局异常：模块计数/Deck 类型名记录不在预期位置（确认模板含换台台面，即单换台以上工程）"
+# 固定头21B（'2'配置号+DateTime×2）+ 模块计数（必须与实际模块数一致，否则解析器读到EOF报错）
 N_MODULES = 3   # 单换台固定值：MainDeck + Workflow + DESK2；多次换台需重构
-HDR = tpl[53:74] + struct.pack('>I', N_MODULES)
+HDR = tpl[HEAD0:HEAD0+21] + struct.pack('>I', N_MODULES)
 def recs_from_tpl():
     """模板里的类型名记录（Deck 121B / Workflow 133B / 'WorkflowModuleModel'）"""
     out, i = [], 0
@@ -336,7 +349,7 @@ blob = b''.join([
     R('DESK 2'),
     FF, R(J(desk2)),               # 换台后台面
 ])
-blob = blob.replace(b'1.9.0.395', b'1.9.0.398')  # 模板如嵌旧版本串，统一对齐到398
+blob = blob.replace(b'1.9.0.395', SW.encode())  # 模板如嵌旧版本串，对齐到目标版本
 open(OUT, 'wb').write(blob)
 print(f"✓ 生成 {OUT}（{len(blob)}B）")
 print(f"  流程活动数: {len(workflow['Activities'])}（根下）")

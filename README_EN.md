@@ -84,11 +84,19 @@ Mention any of these in Claude Code and the skill wakes up:
 
 It opens with one question: "What do you need me to do right now?"
 
+### Generating a .wfp file directly
+
+To convert a spredo script into a `.wfp` project yourself — or to understand how the
+format works — see **[docs/生成WFP文件操作指南.md](docs/生成WFP文件操作指南.md)**
+(Chinese, with command-line examples). The repo ships a dependency-free synthetic
+template, so it works out of the clone with no vendor files required.
+
 ## Repository layout
 
 ```
 mgisp960-devkit/
 ├── SKILL.md            # Entry: three workflows, must-ask checklist, red lines
+├── docs/               # user-facing how-to guides (generating .wfp files, etc.)
 ├── references/         # 14 reference docs, organized in 6 layers
 │   ├── 00–01           # protocol reading; hardware/deck rules
 │   ├── 02–04, 09       # spredo syntax / WD syntax / PCR XML / .wfp format

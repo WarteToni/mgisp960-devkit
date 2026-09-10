@@ -84,11 +84,18 @@ git clone https://github.com/WarteToni/mgisp960-devkit.git ~/.claude/skills/mgis
 
 唤醒后它先问一句：「你现在需要我做什么？」
 
+### 直接生成 WFP 文件
+
+想手动把一份 spredo 脚本转成 `.wfp` 工程（或想了解它的生成原理）：
+模板从哪来、命令怎么写、产物怎么验，见 **[docs/生成WFP文件操作指南.md](docs/生成WFP文件操作指南.md)**——
+仓库自带零依赖的合成模板，clone 即用，无需任何原厂文件。
+
 ## 目录结构
 
 ```
 mgisp960-devkit/
 ├── SKILL.md            # 入口：三条工作流、必问清单、红线速记
+├── docs/               # 面向使用者的操作指南（生成 WFP 文件等）
 ├── references/         # 14 篇参考文档，按 6 层职责组织
 │   ├── 00–01           # 说明书解读法；硬件/台面规则
 │   ├── 02–04, 09       # spredo 语法 / WD 语法 / PCR XML / .wfp 格式

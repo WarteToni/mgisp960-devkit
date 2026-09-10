@@ -89,7 +89,7 @@ mock spredo 直接 exec 脚本骨架（液体操作进引擎，PCR/弹窗/换台
 
 | 方向 | 方法 |
 |---|---|
-| **Python → WD** | `scripts/spredo转wfp_生成器.py <脚本.py> <模板.wfp> <输出.wfp> [工程名] [固定PCR方法名]`——AST 自动转换，已实战（444 节点工程）；限制见脚本头部注释（需单换台结构、require2 不转换） |
+| **Python → WD** | `scripts/spredo转wfp_生成器.py <脚本.py> <模板.wfp> <输出.wfp> [工程名] [固定PCR方法名] [--sw 1.9.0.398]`——AST 自动转换，已实战（444 节点工程）；模板用仓库自带 `scripts/最小骨架模板.wfp`（`最小骨架wfp_合成器.py --sw` 可再生 395 版）或用户任一单换台工程；限制见脚本头部注释（需单换台结构、require2 不转换）。**使用操作（模板/命令/验证/排错）见 `docs/生成WFP文件操作指南.md`** |
 | **WD → Python** | 首选 **WDesigner 原生导出**（工程→导出 .python/ 目录，官方同源）；或按 `references/09` 解析 .wfp 活动 JSON，用 `references/02` §六对照表反向映射成 spredo 语法 |
 | **一致性核验** | **项目目录同含 .wfp 与 .python → 一律读 .wfp**（工程源头、保存即最新；.python 是机器里导出更新的产物，天然滞后——09 §〇）；wfp 活动树拍平（DFS）与 py 执行顺序逐行对位（09 §六）；对齐含结构层（循环壳增删），收尾逐操作终核（踩坑 #15） |
 
